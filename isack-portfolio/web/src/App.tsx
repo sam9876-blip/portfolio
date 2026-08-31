@@ -12,7 +12,7 @@ export default function App() {
     <ThemeProvider>
       <BrowserRouter>
         <ScrollToTop />
-        <div className="min-h-screen bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-surface-dark dark:text-slate-100">
+        <div className="min-h-screen bg-surface-dark text-slate-100 transition-colors duration-300">
           <Routes>
             <Route
               path="/"

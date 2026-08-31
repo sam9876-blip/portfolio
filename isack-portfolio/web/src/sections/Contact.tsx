@@ -41,8 +41,7 @@ export default function Contact() {
     'w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm outline-none transition-colors placeholder:text-slate-500 focus:border-primary-400/60'
 
   return (
-    <section id="contact" className="section relative overflow-hidden">
-      <div className="pointer-events-none absolute -left-32 bottom-0 h-[400px] w-[400px] rounded-full bg-primary-600/15 blur-[130px]" />
+    <section id="contact" className="section relative">
       <div className="container-x relative">
         <SectionHeading
           eyebrow="Contact"
@@ -59,14 +58,14 @@ export default function Contact() {
                   href={c.href}
                   target={c.href?.startsWith('http') ? '_blank' : undefined}
                   rel="noreferrer"
-                  className="card flex items-center gap-4"
+                  className="group flex items-center gap-4"
                 >
-                  <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400">
+                  <span className="text-primary-400 transition-transform duration-300 group-hover:scale-110">
                     {c.icon}
                   </span>
                   <div>
                     <p className="text-xs uppercase tracking-wide text-slate-500">{c.label}</p>
-                    <p className="font-medium break-all">{c.value || '—'}</p>
+                    <p className="font-medium break-all">{c.value || 'Unavailable'}</p>
                   </div>
                 </a>
               ))}
@@ -74,7 +73,7 @@ export default function Contact() {
           </Reveal>
 
           <Reveal delay={0.15} className="lg:col-span-3">
-            <form onSubmit={handleSubmit} className="card">
+            <form onSubmit={handleSubmit}>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div>
                   <label className="mb-1.5 block text-sm font-medium">Your name *</label>
@@ -104,12 +103,12 @@ export default function Contact() {
 
               {status === 'success' && (
                 <p className="mt-4 rounded-lg bg-emerald-500/15 px-4 py-3 text-sm font-medium text-emerald-400">
-                  ✓ Message sent! I'll get back to you soon.
+                  Message sent! I'll get back to you soon.
                 </p>
               )}
               {status === 'error' && (
                 <p className="mt-4 rounded-lg bg-red-500/15 px-4 py-3 text-sm font-medium text-red-400">
-                  ✕ Failed to send. Please try again.
+                  Failed to send. Please try again.
                 </p>
               )}
             </form>

@@ -34,7 +34,7 @@ export default function ProfileManager() {
     setStatus('Saving...')
     try {
       await api.updateProfile(profile!)
-      setStatus('Saved ✓')
+      setStatus('Saved successfully')
       setTimeout(() => setStatus(''), 3000)
     } catch (err: any) {
       setStatus(err.message)

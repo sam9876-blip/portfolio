@@ -1,39 +1,76 @@
-import { useEffect, useState } from 'react'
-import { api, type Service } from '../services/api'
 import { SectionHeading, Reveal } from '../components/Reveal'
-import { Icon } from '../components/Icons'
+
+const offerings = [
+  {
+    title: 'Websites & Webapps',
+    description:
+      'I develop back-end & front-end applications with React, Vue, Angular, Django, Node & GO.',
+  },
+  {
+    title: 'Mobile Applications',
+    description:
+      'I do iOS and android app development with Flutter and React Native.',
+  },
+]
+
+const tools = [
+  { label: 'Frontend', items: 'React, Angular, Vue' },
+  { label: 'Backend', items: 'Django, Flask, Node Express, Go' },
+  { label: 'Mobile', items: 'React Native, Flutter, Expo' },
+]
+
+const stats = [
+  { value: '3+', label: 'Years of Experience' },
+  { value: '15+', label: 'Projects Finished' },
+]
 
 export default function Services() {
-  const [services, setServices] = useState<Service[]>([])
-
-  useEffect(() => {
-    api.getServices().then(setServices).catch(() => {})
-  }, [])
-
   return (
-    <section id="services" className="section">
-      <div className="container-x">
+    <section id="services" className="section relative overflow-hidden">
+      <div className="container-x relative">
         <SectionHeading
-          eyebrow="Services"
-          title={<>What I can <span className="gradient-text">offer</span></>}
-          subtitle="Services I provide to help you build, scale and ship your product."
+          eyebrow="What I do"
+          title={<>What I <span className="gradient-text">do</span></>}
         />
 
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service, i) => (
-            <Reveal key={service.id} delay={i * 0.07}>
-              <div className="group card relative h-full overflow-hidden">
-                <div className="pointer-events-none absolute -right-8 -top-8 h-24 w-24 rounded-full bg-primary-500/10 blur-2xl transition-all group-hover:bg-primary-500/20" />
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-primary-500/20 to-accent-500/20 text-primary-400">
-                  <Icon name={service.icon || 'code'} className="h-7 w-7" />
-                </div>
-                <h3 className="mt-5 font-display text-lg font-bold">{service.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                  {service.description}
+        <div className="mx-auto max-w-4xl space-y-12">
+          <div className="space-y-10">
+            {offerings.map((o, i) => (
+              <Reveal key={i} delay={i * 0.05}>
+                <p className="font-display text-2xl font-bold">{o.title}</p>
+                <p className="mt-2 max-w-3xl text-lg leading-relaxed text-slate-600 dark:text-slate-300">
+                  {o.description}
                 </p>
-              </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div>
+            <Reveal>
+              <p className="font-display text-2xl font-bold">Tools & technologies</p>
             </Reveal>
-          ))}
+            <div className="mt-6 grid gap-8 sm:grid-cols-3">
+              {tools.map((t, i) => (
+                <Reveal key={t.label} delay={i * 0.05}>
+                  <p className="text-sm font-semibold uppercase tracking-widest text-primary-400">
+                    {t.label}
+                  </p>
+                  <p className="mt-2 text-slate-600 dark:text-slate-300">{t.items}</p>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid gap-8 pt-4 sm:grid-cols-2">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 0.05} className="text-center">
+                <p className="font-display text-6xl font-extrabold gradient-text">{s.value}</p>
+                <p className="mt-2 text-sm uppercase tracking-widest text-slate-500 dark:text-slate-400">
+                  {s.label}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

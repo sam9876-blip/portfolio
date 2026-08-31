@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { motion } from 'framer-motion'
 import { useTheme } from '../context/ThemeContext'
 
 const links = [
   { href: 'home', label: 'Home' },
-  { href: 'about', label: 'About' },
-  { href: 'skills', label: 'Skills' },
   { href: 'projects', label: 'Projects' },
-  { href: 'experience', label: 'Experience' },
-  { href: 'services', label: 'Services' },
+  { href: 'about', label: 'About' },
   { href: 'contact', label: 'Contact' },
 ]
+
+const resumeHref = '/resume.pdf'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -55,9 +55,11 @@ export default function Navbar() {
       }`}
     >
       <nav className="container-x flex h-16 items-center justify-between">
-        <a href="#home" onClick={(e) => scrollTo(e, 'home')} className="font-display text-lg font-bold">
-          <span className="gradient-text">Samuel</span>
-          <span className="text-slate-400">.</span>
+        <a href="#home" onClick={(e) => scrollTo(e, 'home')} className="flex items-center gap-2 font-display text-lg font-bold">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-500 text-sm font-extrabold text-white">
+            S
+          </span>
+          <span className="gradient-text">Samuel Wambua</span>
         </a>
 
         <div className="hidden items-center gap-1 lg:flex">
@@ -66,18 +68,31 @@ export default function Navbar() {
               key={l.href}
               href={`#${l.href}`}
               onClick={(e) => scrollTo(e, l.href)}
-              className={`rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+              className={`relative rounded-full px-3 py-2 text-sm font-medium transition-colors ${
                 active === l.href
                   ? 'text-primary-400'
                   : 'text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white'
               }`}
             >
               {l.label}
+              {active === l.href && (
+                <motion.span
+                  layoutId="nav-pill"
+                  className="absolute inset-0 -z-10 rounded-full bg-primary-500/10"
+                  transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                />
+              )}
             </a>
           ))}
+          <a href={resumeHref} className="px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:text-slate-900 dark:text-slate-300 dark:hover:text-white">
+            Resume
+          </a>
         </div>
 
         <div className="flex items-center gap-2">
+          <a href={resumeHref} className="hidden rounded-full bg-primary-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-primary-600/30 transition-all hover:bg-primary-600 lg:inline-flex">
+            Resume
+          </a>
           <button
             onClick={toggle}
             aria-label="Toggle theme"
@@ -121,6 +136,12 @@ export default function Navbar() {
                   {l.label}
                 </a>
               ))}
+              <a
+                href={resumeHref}
+                className="mt-2 rounded-lg bg-primary-500 px-3 py-2.5 text-center text-sm font-semibold text-white"
+              >
+                Resume
+              </a>
             </div>
           </div>
         </div>

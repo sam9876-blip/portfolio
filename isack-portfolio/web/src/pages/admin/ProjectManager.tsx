@@ -136,8 +136,8 @@ export default function ProjectManager({
                   )}
                 </div>
                 <div>
-                  <p className="font-medium">{p.title} {p.featured && <span className="text-xs text-primary-400">⭐</span>}</p>
-                  <p className="text-xs text-slate-500">{p.techs.join(' · ') || 'No technologies'}</p>
+                  <p className="font-medium">{p.title} {p.featured && <span className="ml-1 rounded-full bg-primary-500/15 px-2 py-0.5 text-[10px] font-bold text-primary-400">Featured</span>}</p>
+                  <p className="text-xs text-slate-500">{p.techs.join(' / ') || 'No technologies'}</p>
                 </div>
               </div>
               <div className="flex shrink-0 gap-2">

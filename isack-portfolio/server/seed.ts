@@ -16,9 +16,9 @@ async function main() {
       name: 'Samuel Wambua',
       title: 'Software Engineer & Full-Stack Developer',
       intro:
-        'I build fast, scalable and beautiful web applications — from thoughtful UI to robust APIs and databases.',
+        'I build fast, scalable and beautiful web applications, from thoughtful UI to robust APIs and databases.',
       bio:
-        "I'm a software engineer and full-stack developer who loves turning complex problems into clean, performant products. I specialise in the JavaScript/TypeScript ecosystem — React, Next.js, Node.js and PostgreSQL — and I enjoy owning a feature end-to-end: designing the database, building the API, and crafting the interface that users actually love.\n\nI'm currently focused on building real-world systems like TeaLink (a tea farm management platform) and YohPal, and I'm always looking for opportunities where I can ship value and grow with a great team.",
+        "I'm a software engineer and full-stack developer who loves turning complex problems into clean, performant products. I specialise in the JavaScript/TypeScript ecosystem, including React, Next.js, Node.js and PostgreSQL, and I enjoy owning a feature end-to-end: designing the database, building the API, and crafting the interface that users actually love.\n\nI'm currently focused on building real-world systems like TeaLink (a tea farm management platform) and YohPal, and I'm always looking for opportunities where I can ship value and grow with a great team.",
       email: 'hello@samuelwambua.dev',
       phone: '+254 700 000 000',
       github: 'https://github.com/samuelwambua',
@@ -45,7 +45,7 @@ async function main() {
     data: {
       title: 'TeaLink',
       description:
-        'A complete farm management system for tea cooperatives — tracking farmers, plot yields, harvest records, and payout calculations in a single dashboard.',
+        'A complete farm management system for tea cooperatives, tracking farmers, plot yields, harvest records, and payout calculations in a single dashboard.',
       repoUrl: 'https://github.com/samuelwambua/tealink',
       demoUrl: 'https://tealink.demo.com',
       featured: true,
@@ -163,7 +163,7 @@ async function main() {
   // Experience
   await prisma.experience.create({
     data: {
-      role: 'Backend Developer — Intern',
+      role: 'Backend Developer, Intern',
       company: 'TeaLink Systems',
       location: 'Nairobi, Kenya',
       startDate: 'Jan 2024',
@@ -184,7 +184,7 @@ async function main() {
       current: true,
       order: 2,
       description:
-        'Developing and maintaining client web applications end-to-end — from UI in React to deployment on Linux servers with Docker.',
+        'Developing and maintaining client web applications end-to-end, from UI in React to deployment on Linux servers with Docker.',
     },
   })
 
@@ -193,7 +193,7 @@ async function main() {
     data: {
       institution: 'University of Nairobi',
       degree: 'BSc. Computer Science',
-      period: '2020 – 2024',
+      period: '2020 - 2024',
       description: 'Relevant coursework: Data Structures, Databases, Web Technologies, Software Engineering.',
       order: 1,
     },

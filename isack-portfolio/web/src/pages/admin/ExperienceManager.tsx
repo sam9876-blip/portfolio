@@ -63,7 +63,7 @@ export default function ExperienceManager({
               <div>
                 <p className="font-medium">{ex.role} {ex.current && <span className="text-xs text-emerald-400">● Current</span>}</p>
                 <p className="text-sm text-primary-400">{ex.company}</p>
-                <p className="text-xs text-slate-500">{ex.startDate} – {ex.current ? 'Present' : ex.endDate}</p>
+                <p className="text-xs text-slate-500">{ex.startDate} - {ex.current ? 'Present' : ex.endDate}</p>
               </div>
               <button onClick={() => removeEntry(ex)} className={`${btnGhost} !px-3 !py-1.5 text-xs hover:border-red-500/40 hover:text-red-400`}>✕</button>
             </div>
